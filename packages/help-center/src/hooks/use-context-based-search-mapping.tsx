@@ -1,5 +1,5 @@
 import { useSelect } from '@wordpress/data';
-import urlMapping from '../route-to-query-mapping.json';
+import urlMapping from '../route-to-query-mapping';
 import tailoredArticlesMapping from '../tailored-post-ids-mapping.json';
 import type { TailoredArticles } from '../types';
 
