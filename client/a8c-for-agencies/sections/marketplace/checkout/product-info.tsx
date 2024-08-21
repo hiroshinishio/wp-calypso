@@ -60,10 +60,14 @@ export default function ProductInfo( { product }: { product: ShoppingCartItem } 
 			}
 		);
 
+		const formattedSiteUrls = product.siteUrls?.map( ( siteUrl ) =>
+			siteUrl.replace( /^https?:\/\//, '' )
+		);
+
 		siteUrls = product.siteUrls?.length
-			? translate( 'Launch %(sitesList)s', {
+			? translate( 'Site: %(sitesList)s', {
 					args: {
-						sitesList: product.siteUrls.join( ',' ),
+						sitesList: formattedSiteUrls?.join( ',' ) ?? '',
 					},
 					context: 'product description',
 					comment: 'The `sitesList` is the list of site URLs in the plan description.',
@@ -104,7 +108,7 @@ export default function ProductInfo( { product }: { product: ShoppingCartItem } 
 					<span className="product-info__count">{ countInfo }</span>
 				</div>
 				<p className="product-info__description">{ productDescription }</p>
-				<p className="product-info__description">{ siteUrls }</p>
+				<p className="product-info__site-url">{ siteUrls }</p>
 			</div>
 		</div>
 	);
