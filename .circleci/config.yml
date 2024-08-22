@@ -475,22 +475,24 @@ workflows:
   wp-desktop:
     jobs:
       - wp-desktop-assets:
-          filters:
-            branches:
-              only:
-                - trunk
-                - /circleci.*/
-                - /release\/.*/
-                - /desktop\/.*/
+          # Disabled to always build for debugging purposes
+          # filters:
+          #   branches:
+          #     only:
+          #       - trunk
+          #       - /circleci.*/
+          #       - /release\/.*/
+          #       - /desktop\/.*/
       - wp-desktop-mac:
           requires:
             - wp-desktop-assets
-          filters:
-            branches:
-              only:
-                - trunk
-                - /release\/.*/
-                - /desktop\/.*/
+          # Disabled to always build for debugging purposes
+          # filters:
+          #   branches:
+          #     only:
+          #       - trunk
+          #       - /release\/.*/
+          #       - /desktop\/.*/
       - wp-desktop-linux:
           requires:
             - wp-desktop-assets
